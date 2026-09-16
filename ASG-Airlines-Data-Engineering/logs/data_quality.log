@@ -1,0 +1,20 @@
+2026-09-16 02:14:01,776 - INFO - Starting ASG Airlines Data Quality Audit...
+2026-09-16 02:14:01,776 - INFO - Loading raw workbook from: C:\Users\deyab\Desktop\M_Projects\ASG-Airlines-Data-Engineering\data\raw\UseCase - Airlines.xlsx
+2026-09-16 02:14:02,274 - INFO - Successfully loaded 4 sheets: ['flights', 'payments', 'bookings', 'passengers']
+2026-09-16 02:14:02,274 - INFO - Auditing sheet 'flights' (1020 rows, 7 columns)...
+2026-09-16 02:14:02,325 - WARNING - Sheet 'flights': Found 15 (1.47%) full duplicate rows.
+2026-09-16 02:14:02,326 - WARNING - Sheet 'flights': Found 16 duplicate flight_id entries.
+2026-09-16 02:14:02,327 - WARNING - Sheet 'flights', Column 'airline': 41 missing values (4.02%).
+2026-09-16 02:14:02,328 - INFO - Auditing sheet 'payments' (1000 rows, 4 columns)...
+2026-09-16 02:14:02,330 - WARNING - Sheet 'payments', Column 'amount': 48 missing values (4.8%).
+2026-09-16 02:14:02,330 - INFO - Auditing sheet 'bookings' (1000 rows, 9 columns)...
+2026-09-16 02:14:02,334 - WARNING - Sheet 'bookings', Column 'status': 45 missing values (4.5%).
+2026-09-16 02:14:02,334 - INFO - Auditing sheet 'passengers' (1039 rows, 9 columns)...
+2026-09-16 02:14:02,337 - WARNING - Sheet 'passengers': Found 39 duplicate passenger_id entries.
+2026-09-16 02:14:02,338 - WARNING - Sheet 'passengers', Column 'last_name': 10 missing values (0.96%).
+2026-09-16 02:14:02,388 - WARNING - Flights: Found 1 records with conflicting duplicate flight_ids.
+2026-09-16 02:14:02,390 - WARNING - Flights: Found 1 records where arrival_time < departure_time.
+2026-09-16 02:14:02,398 - WARNING - Payments: Found 30 'INVALID' amount records.
+2026-09-16 02:14:02,399 - WARNING - Bookings: Found 30 'INVALID' status records.
+2026-09-16 02:14:02,406 - INFO - Data Quality Report saved to: C:\Users\deyab\Desktop\M_Projects\ASG-Airlines-Data-Engineering\data\processed\data_quality_report.csv
+2026-09-16 02:14:02,411 - INFO - Data Quality Audit complete.

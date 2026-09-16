@@ -1,0 +1,10 @@
+2026-09-16 02:14:04,184 - INFO - Starting ASG Airlines Data Transformation Pipeline...
+2026-09-16 02:14:04,203 - INFO - Transforming 'flights': input record count = 1004
+2026-09-16 02:14:04,213 - INFO - 'flights': created route, departure_hour, arrival_hour, departure_period. Flagged 122 overnight flights.
+2026-09-16 02:14:04,215 - INFO - Transforming 'bookings': input record count = 1000
+2026-09-16 02:14:04,219 - INFO - 'bookings': extracted date components (booking_year, booking_month, booking_day, booking_dayofweek).
+2026-09-16 02:14:04,219 - INFO - Transforming 'passengers': input record count = 1000
+2026-09-16 02:14:04,220 - INFO - 'passengers': created categorical field 'age_group'.
+2026-09-16 02:14:04,220 - INFO - Transforming 'payments': input record count = 1000
+2026-09-16 02:14:04,221 - INFO - 'payments': standardized data types.
+2026-09-16 02:14:04,241 - INFO - Data Transformation Pipeline finished cleanly.

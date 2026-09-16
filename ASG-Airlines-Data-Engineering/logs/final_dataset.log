@@ -1,0 +1,8 @@
+2026-09-16 02:14:06,079 - INFO - Starting Final Clean Dataset Generation Pipeline...
+2026-09-16 02:14:06,096 - INFO - Final Integrity Checks Passed: 1004 rows, 14 columns.
+2026-09-16 02:14:06,405 - INFO - Audit Trail Generated: 16 rejected records documented.
+2026-09-16 02:14:06,413 - INFO - Final dataset exported to: C:\Users\deyab\Desktop\M_Projects\ASG-Airlines-Data-Engineering\data\processed\final_flights.csv
+2026-09-16 02:14:06,413 - INFO - Rejected dataset exported to: C:\Users\deyab\Desktop\M_Projects\ASG-Airlines-Data-Engineering\data\processed\rejected_flights.csv
+2026-09-16 02:14:06,423 - INFO - Exported clean final analytical table: C:\Users\deyab\Desktop\M_Projects\ASG-Airlines-Data-Engineering\data\processed\final_bookings.csv
+2026-09-16 02:14:06,430 - INFO - Exported clean final analytical table: C:\Users\deyab\Desktop\M_Projects\ASG-Airlines-Data-Engineering\data\processed\final_passengers.csv
+2026-09-16 02:14:06,435 - INFO - Exported clean final analytical table: C:\Users\deyab\Desktop\M_Projects\ASG-Airlines-Data-Engineering\data\processed\final_payments.csv

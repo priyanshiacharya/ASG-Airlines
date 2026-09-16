@@ -1,0 +1,12 @@
+2026-09-16 02:14:03,027 - INFO - Starting ASG Airlines Data Cleaning Pipeline...
+2026-09-16 02:14:03,500 - INFO - Cleaning 'flights': initial record count = 1020
+2026-09-16 02:14:03,505 - INFO - 'flights': removed 15 full duplicate rows and 1 duplicate flight_id records.
+2026-09-16 02:14:03,535 - INFO - 'flights': imputed 68 missing/UNKNOWN airlines using prefix rule.
+2026-09-16 02:14:03,540 - INFO - 'flights': corrected 1 cross-day/overflow arrival timestamps.
+2026-09-16 02:14:03,546 - INFO - Cleaning 'payments': initial record count = 1000
+2026-09-16 02:14:03,555 - INFO - 'payments': imputed 78 missing/INVALID payment amounts using group median.
+2026-09-16 02:14:03,558 - INFO - Cleaning 'bookings': initial record count = 1000
+2026-09-16 02:14:03,564 - INFO - 'bookings': handled 75 missing/INVALID booking statuses (mapped to 'UNKNOWN').
+2026-09-16 02:14:03,576 - INFO - Cleaning 'passengers': initial record count = 1039
+2026-09-16 02:14:03,581 - INFO - 'passengers': filled 0 missing last_name values with 'N/A'.
+2026-09-16 02:14:03,596 - INFO - Data Cleaning Pipeline complete.

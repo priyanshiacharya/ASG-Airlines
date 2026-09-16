@@ -1,0 +1,6 @@
+2026-09-16 02:14:07,041 - INFO - Starting Data Model and Business KPI Calculation Pipeline...
+2026-09-16 02:14:07,055 - INFO - Average Flight Duration: 164.75 minutes (2.75 hours). Min=30.0, Max=300.0.
+2026-09-16 02:14:07,099 - INFO - Route Traffic KPI: Computed metrics across 30 unique routes.
+2026-09-16 02:14:07,106 - INFO - Airline Distribution KPI: Computed metrics across 4 airlines.
+2026-09-16 02:14:07,108 - INFO - Anomaly & Quality Audit KPI Table compiled.
+2026-09-16 02:14:07,114 - INFO - All 6 KPI output CSV files saved successfully to: C:\Users\deyab\Desktop\M_Projects\ASG-Airlines-Data-Engineering\data\processed

@@ -1,0 +1,23 @@
+Issue,Sheet,Column,Number of affected records,Percentage affected,Recommended action for Step 5
+Full Duplicate Rows,flights,ALL,15,1.47,Deduplicate exact matching rows.
+Duplicate Primary Key (flight_id),flights,flight_id,16,1.57,Investigate and deduplicate/reconcile duplicate flight_id entries.
+Missing Value (NaN),flights,airline,41,4.02,Impute missing values or flag as 'UNKNOWN'.
+Missing Value (NaN),payments,amount,48,4.8,Impute missing values or flag as 'UNKNOWN'.
+Missing Value (NaN),bookings,status,45,4.5,Impute missing values or flag as 'UNKNOWN'.
+Duplicate Primary Key (passenger_id),passengers,passenger_id,39,3.75,Investigate and deduplicate/reconcile duplicate passenger_id entries.
+Missing Value (NaN),passengers,last_name,10,0.96,Impute missing values or flag as 'UNKNOWN'.
+Conflicting Duplicate Flight IDs,flights,flight_id,1,0.1,Resolve conflicting flight details for identical flight_ids.
+Invalid Flight Time (Arrival < Departure),flights,arrival_time / departure_time,1,0.1,Adjust date component for cross-day flights or correct timestamp corruption.
+Unresolved Airline Code ('UNKNOWN'),flights,airline,31,3.04,Impute airline name from flight_id prefix mapping (e.g. 6F -> IndiGo).
+Invalid String in Numeric Amount ('INVALID'),payments,amount,30,3.0,Coerce invalid strings to NaN and impute median amount per payment method.
+Invalid Booking Status ('INVALID'),bookings,status,30,3.0,Map 'INVALID' booking status to 'UNKNOWN' or resolve via payment logs.
+Truncated Aadhaar ID Length (< 12 digits),passengers,aadhaar_id,114,10.97,Pad truncated numeric Aadhaar IDs with leading zeros to 12 digits.
+PII Column Identified: Direct PII (First Name),passengers,first_name,1039,100.0,Apply masking or hashing (anonymization) for production compliance.
+PII Column Identified: Direct PII (Last Name),passengers,last_name,1039,100.0,Apply masking or hashing (anonymization) for production compliance.
+PII Column Identified: Direct PII (Email Address),passengers,email,1039,100.0,Apply masking or hashing (anonymization) for production compliance.
+PII Column Identified: Direct PII (Phone Number),passengers,phone,1039,100.0,Apply masking or hashing (anonymization) for production compliance.
+PII Column Identified: Sensitive Government ID PII (Aadhaar Number),passengers,aadhaar_id,1039,100.0,Apply masking or hashing (anonymization) for production compliance.
+PII Column Identified: Demographic PII (Date of Birth),passengers,date_of_birth,1039,100.0,Apply masking or hashing (anonymization) for production compliance.
+PII Column Identified: Sensitive Government Document PII (Passport Number),bookings,passport_number,1000,100.0,Apply masking or hashing (anonymization) for production compliance.
+PII Column Identified: Third-Party Contact PII (Emergency Name),bookings,emergency_contact_name,1000,100.0,Apply masking or hashing (anonymization) for production compliance.
+PII Column Identified: Third-Party Contact PII (Emergency Phone),bookings,emergency_contact_phone,1000,100.0,Apply masking or hashing (anonymization) for production compliance.

@@ -1,0 +1,6 @@
+kpi_name,definition,calculation_logic,business_meaning
+Average Flight Duration,Mean flight duration across valid flights,SUM(flight_duration_minutes) / COUNT(valid_flights),Measures average flight travel time for scheduling efficiency.
+Route-wise Traffic,Total flight volume operating on each specific airport route,"COUNT(flight_id) GROUP BY source, destination, route",Identifies highest demand domestic flight corridors.
+Airline Market Share,Proportion of total flights operated by each airline,(COUNT(flight_id) per Airline / Total Flights) * 100,Evaluates competitive airline capacity distribution.
+Overnight Flight Ratio,Percentage of total flights arriving on the next calendar day,(SUM(overnight_flag) / Total Flights) * 100,Measures night-shift operational reliance.
+Data Quality Anomaly Count,Total count of rejected or invalid flight records,COUNT(rejected_records) + COUNT(duration_status != 'Valid'),Monitors data engineering pipeline health and audit readiness.

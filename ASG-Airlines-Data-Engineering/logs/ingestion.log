@@ -1,0 +1,12 @@
+2026-09-16 02:14:00,537 - INFO - Starting ASG Airlines Data Ingestion Process...
+2026-09-16 02:14:00,537 - INFO - Attempting to load Excel workbook from: C:\Users\deyab\Desktop\M_Projects\ASG-Airlines-Data-Engineering\data\raw\UseCase - Airlines.xlsx
+2026-09-16 02:14:00,930 - INFO - Excel file loaded successfully. Found 4 sheet(s): ['flights', 'payments', 'bookings', 'passengers']
+2026-09-16 02:14:00,999 - INFO - Sheet 'flights' loaded with shape (1020, 7) (Rows: 1020, Columns: 7)
+2026-09-16 02:14:01,031 - INFO - Sheet 'payments' loaded with shape (1000, 4) (Rows: 1000, Columns: 4)
+2026-09-16 02:14:01,102 - INFO - Sheet 'bookings' loaded with shape (1000, 9) (Rows: 1000, Columns: 9)
+2026-09-16 02:14:01,180 - INFO - Sheet 'passengers' loaded with shape (1039, 9) (Rows: 1039, Columns: 9)
+2026-09-16 02:14:01,181 - INFO - Schema inspection completed for sheet 'flights'.
+2026-09-16 02:14:01,182 - INFO - Schema inspection completed for sheet 'payments'.
+2026-09-16 02:14:01,183 - INFO - Schema inspection completed for sheet 'bookings'.
+2026-09-16 02:14:01,184 - INFO - Schema inspection completed for sheet 'passengers'.
+2026-09-16 02:14:01,184 - INFO - Data Ingestion step finished cleanly.

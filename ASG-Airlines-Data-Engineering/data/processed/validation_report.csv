@@ -1,0 +1,20 @@
+check_name,dataset,status,records_checked,records_failed,failure_percentage,details
+Required Schema Columns Check,flight_data_ready.csv,PASS,14,0,0.0,All 14 required analytical schema columns are present.
+Duplicate Column Names Check,flight_data_ready.csv,PASS,15,0,0.0,No duplicate column names detected.
+Full Record Duplicate Check,flight_data_ready.csv,PASS,1004,0,0.0,Zero full duplicate rows detected in final dataset.
+Flight ID Primary Key Uniqueness Check,flight_data_ready.csv,PASS,1004,0,0.0,All flight_id primary key entries are unique.
+Critical Fields Missing Value Check,flight_data_ready.csv,PASS,5020,0,0.0,Zero missing values in critical flight metadata fields.
+Flight ID Null Check,flight_data_ready.csv,PASS,1004,0,0.0,No null flight_id values exist.
+Flight ID Format Regex Check (^[A-Z0-9]{2}\d{3}$),flight_data_ready.csv,PASS,1004,0,0.0,100% of flight_id entries match standard regex format.
+Route Source != Destination Check,flight_data_ready.csv,PASS,1004,0,0.0,All flight routes connect distinct source and destination airports.
+Route String Format Check ('source → destination'),flight_data_ready.csv,PASS,1004,0,0.0,All route strings match required format ('source → destination').
+Departure Datetime Validity Check,flight_data_ready.csv,PASS,1004,0,0.0,100% of departure_time values are valid datetimes.
+Arrival Datetime Validity Check,flight_data_ready.csv,PASS,1004,0,0.0,100% of arrival_time values are valid datetimes.
+Overnight Flag Consistency Check,flight_data_ready.csv,PASS,1004,0,0.0,Overnight flags are 100% consistent with departure and arrival timestamps.
+Non-Negative Duration Check,flight_data_ready.csv,PASS,1004,0,0.0,Zero negative flight durations detected.
+Duration Status Sanity Check (<15 mins or >600 mins),flight_data_ready.csv,PASS,1004,0,0.0,All flight durations fall within reasonable operational limits (15-600 mins).
+Referential Integrity: Bookings -> Flights FK Check,transformed_bookings.csv,PASS,1000,0,0.0,100% of booking flight_ids reference existing records in flight_data_ready.
+Referential Integrity: Bookings -> Passengers FK Check,transformed_bookings.csv,PASS,1000,0,0.0,100% of booking passenger_ids reference existing records in transformed_passengers.
+Referential Integrity: Payments -> Bookings FK Check,transformed_payments.csv,PASS,1000,0,0.0,100% of payment booking_ids reference existing records in transformed_bookings.
+PII Anonymization Check: Passenger Email Hashing,transformed_passengers.csv,PASS,1000,0,0.0,100% of passenger emails are securely SHA-256 hashed.
+PII Anonymization Check: Phone Number Masking,transformed_passengers.csv,PASS,1000,0,0.0,100% of phone numbers are character-masked.

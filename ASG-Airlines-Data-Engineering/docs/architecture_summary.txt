@@ -1,0 +1,107 @@
+================================================================================
+ASG AIRLINES DATA ENGINEERING - SYSTEM ARCHITECTURE & DATA FLOW SUMMARY
+================================================================================
+
+PROJECT OVERVIEW
+----------------
+This document outlines the end-to-end architecture and data flow for the ASG Airlines 
+Data Engineering pipeline. The solution processes multi-sheet operational flight, booking, 
+passenger, and payment data using Python, Pandas, openpyxl, and Microsoft Power BI on a 
+local environment.
+
+================================================================================
+1. SYSTEM ARCHITECTURE LAYERS
+================================================================================
+
+1. RAW DATA LAYER
+   - Primary Source: data/raw/UseCase - Airlines.xlsx (Untouched Raw Excel Workbook)
+   - Input Sheets: 'flights', 'payments', 'bookings', 'passengers'
+   - Immutability: Treated as read-only to preserve data lineage.
+
+2. PROCESSING & DATA PIPELINE LAYER (Python 3.14 + Pandas)
+   - Step 3 (Ingestion): Dynamically inspects and loads raw workbook sheets.
+   - Step 4 (Quality Checks): Identifies nulls, duplicates, and malformed strings.
+   - Step 5 (Data Cleaning): Removes 16 raw duplicate flight rows, imputes missing 
+     airline names using flight prefix lookup (e.g., '6F' -> 'IndiGo'), median-imputes 
+     payment amounts, zero-pads Aadhaar IDs, and applies PII hashing/masking.
+   - Step 6 (Transformation): Creates route strings ('source → destination'), extracts 
+     departure/arrival hours, and categorizes 6-hour departure periods.
+   - Step 7 (Duration & Overnight Handling): Calculates flight duration in minutes and 
+     hours, handles cross-midnight arrival arithmetic (+1 day), and sets overnight flags.
+   - Step 8 (Data Validation): Runs 19 automated QA checks across schema, records, 
+     routes, timestamps, duration, referential integrity, and PII anonymization.
+   - Step 9 (Final Synthesis): Exports final analytical CSV files and audit logs.
+   - Step 10 (KPI Engine): Builds analytical tables and computes core business metrics.
+
+3. LOCAL STORAGE LAYER
+   - data/raw/: Immutable original dataset backup.
+   - data/processed/: Cleaned and transformed analytical CSV files (final_flights.csv, 
+     final_bookings.csv, final_passengers.csv, final_payments.csv, kpi_summary.csv, 
+     route_kpis.csv, airline_kpis.csv, anomaly_kpis.csv, rejected_flights.csv).
+   - logs/: Step-by-step pipeline execution log files.
+
+4. ANALYTICS & DATA MODEL LAYER
+   - Star Schema Data Model:
+     * Fact Table: FactFlights (1,004 rows)
+     * Dimension Tables: DimAirline, DimRoute, DimTime
+     * Relational Links: FactFlights <-> DimAirline, DimRoute, DimTime, FactBookings, 
+       FactPayments, FactPassengers
+   - Business KPIs:
+     * Total Flight Operations: 1,004 flights
+     * Active Airlines: 4 (IndiGo 27.09%, Air India 25.40%, SpiceJet 24.60%, Vistara 22.91%)
+     * Active Domestic Routes: 30 unique corridors
+     * Average Flight Duration: 164.75 minutes (2.75 hours)
+     * Overnight Flights: 122 flights (12.15%)
+
+5. VISUALIZATION & REPORTING LAYER
+   - Platform: Microsoft Power BI Desktop
+   - Report File: powerbi/ASG_Airlines_Flight_Operations.pbix
+   - Structure: 4 Interactive Dashboard Pages (Executive Overview, Route & Traffic Analysis, 
+     Flight Operations & Duration Analysis, Data Quality & Governance Audit).
+
+================================================================================
+2. LINEAR DATA FLOW PROGRESSION
+================================================================================
+
+Raw Excel Dataset (data/raw/UseCase - Airlines.xlsx)
+       │
+       ▼
+Python Ingestion (src/ingestion.py)
+       │
+       ▼
+Data Quality Audit (src/data_quality.py -> data_quality_report.csv)
+       │
+       ▼
+Data Cleaning & PII Masking (src/data_cleaning.py -> cleaned_*.csv)
+       │
+       ▼
+Data Transformation & Route Engineering (src/data_transformation.py -> transformed_*.csv)
+       │
+       ▼
+Flight Duration & Overnight Arithmetic (src/flight_duration.py -> flight_data_ready.csv)
+       │
+       ▼
+Automated Data Validation (src/data_validation.py -> validation_report.csv)
+       │
+       ▼
+Final Analytical Dataset Synthesis (src/final_dataset.py -> final_*.csv, rejected_flights.csv)
+       │
+       ▼
+KPI Model & Star Schema Generation (src/kpi_model.py -> kpi_summary.csv, route_kpis.csv, etc.)
+       │
+       ▼
+Power BI Star Schema Data Model Import
+       │
+       ▼
+Interactive Power BI Flight Operations Dashboard (powerbi/ASG_Airlines_Flight_Operations.pbix)
+
+================================================================================
+3. TECHNICAL DESIGN PRINCIPLES
+================================================================================
+- Strict Local Architecture: Powered by local Python scripts, CSV data files, and 
+  Power BI Desktop without reliance on cloud or proprietary external services.
+- Data Lineage & Traceability: Audit trail preserved via rejected_flights.csv and 
+  structured log files under logs/.
+- PII Governance: Sensitive passenger identifiers protected via SHA-256 salted hashing 
+  and character masking.
+================================================================================

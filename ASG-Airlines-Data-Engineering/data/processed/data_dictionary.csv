@@ -1,0 +1,15 @@
+column_name,data_type,description,business_purpose
+flight_id,string,Unique identifier for each flight record,Primary Key for flight identification & foreign key join
+airline,string,"Operating airline company (SpiceJet, Air India, Vistara, IndiGo)",Airline market share & fleet analysis
+source,string,3-letter origin airport IATA code,Origin traffic volume analysis
+destination,string,3-letter destination airport IATA code,Destination traffic volume analysis
+route,string,Formatted origin to destination pair (source → destination),Route-level demand and volume analysis
+departure_time,datetime,Standardized departure date and time timestamp,Departure scheduling analysis
+arrival_time,datetime,Standardized arrival date and time timestamp,Arrival scheduling analysis
+departure_hour,integer,Departure hour component (0 to 23),Hourly departure distribution analysis
+arrival_hour,integer,Arrival hour component (0 to 23),Hourly arrival distribution analysis
+departure_period,string,"Operational shift period (Night, Morning, Afternoon, Evening)",Time window operational performance
+overnight_flag,integer,"Flag indicating cross-midnight arrival (1=Overnight, 0=Same-day)",Overnight flight crew & airport ops planning
+flight_duration_minutes,float,Calculated flight duration in minutes,Flight duration analytics & efficiency KPI
+flight_duration_hours,float,Calculated flight duration in decimal hours,Executive duration reporting
+duration_status,string,"Audit validation status (Valid, Missing, Suspicious, Invalid)",Data quality & exception filtering

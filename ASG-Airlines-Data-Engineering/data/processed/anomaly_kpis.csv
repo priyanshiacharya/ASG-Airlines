@@ -1,0 +1,7 @@
+metric_name,count,percentage,status
+Total Ingested Raw Flights,1020,100.0,RAW_INGESTION
+Rejected Duplicate Flights,16,1.57,REJECTED
+Overnight Flights (Cross-Midnight),122,12.15,ANOMALY_OPERATIONAL
+Suspicious Durations (<15m or >600m),0,0.0,CLEAN
+Invalid Durations (<0m),0,0.0,CLEAN
+Flight Delay KPI Calculation,0,0.0,NOT_SUPPORTED_WITHOUT_SCHEDULED_TIMES

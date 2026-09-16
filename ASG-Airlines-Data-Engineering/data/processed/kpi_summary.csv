@@ -1,0 +1,12 @@
+kpi_name,value_numeric,value_formatted,unit
+Total Flights,1004.0,"1,004",flights
+Total Airlines,4.0,4,airlines
+Total Unique Routes,30.0,30,routes
+Average Flight Duration (Mins),164.75,164.75 mins,minutes
+Average Flight Duration (Hours),2.75,2.75 hrs,hours
+Minimum Flight Duration,30.0,30.00 mins,minutes
+Maximum Flight Duration,300.0,300.00 mins,minutes
+Overnight Flight Count,122.0,122,flights
+Overnight Flight Percentage,12.15,12.15%,percentage
+Valid Durations Count,1004.0,"1,004",flights
+Suspicious / Invalid Durations,0.0,0,flights
